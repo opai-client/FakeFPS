@@ -1,0 +1,30 @@
+name: Opai Extension Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Source
+      uses: actions/checkout@v4
+
+    - name: Jvav
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '21'
+
+    - name: Build
+      run: mvn package -DskipTests
+
+    - name: Upload
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-artifacts
+        path: target/*.jar
+
