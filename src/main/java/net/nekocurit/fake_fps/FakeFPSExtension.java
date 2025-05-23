@@ -6,7 +6,7 @@ import today.opai.api.OpenAPI;
 import today.opai.api.annotations.ExtensionInfo;
 
 // Required @ExtensionInfo annotation
-@ExtensionInfo(name = "FakeFPS",author = "NekoCurit",version = "1.0")
+@ExtensionInfo(name = "FakeFPS",author = "NekoCurit",version = "1.1")
 public class FakeFPSExtension extends Extension {
     public static OpenAPI openAPI;
 
