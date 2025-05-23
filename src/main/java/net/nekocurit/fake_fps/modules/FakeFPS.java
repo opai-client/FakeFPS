@@ -3,6 +3,7 @@ package net.nekocurit.fake_fps.modules;
 import net.nekocurit.fake_fps.utils.RandomUtils;
 import net.nekocurit.fake_fps.wrapped.OpaiMinecraft;
 import today.opai.api.enums.EnumModuleCategory;
+import today.opai.api.events.EventRender2D;
 import today.opai.api.features.ExtensionModule;
 import today.opai.api.interfaces.EventHandler;
 import today.opai.api.interfaces.modules.values.BooleanValue;
@@ -31,14 +32,18 @@ public class FakeFPS extends ExtensionModule implements EventHandler {
         spoofTick = 0;
     }
 
-    @Override
-    public void onPlayerUpdate() {
-        spoofTick++;
-        if (spoofTick > 20) updateSpoofFps();
 
+    @Override
+    public void onRender2D(EventRender2D event) {
         try {
             final OpaiMinecraft mc = OpaiMinecraft.getMinecraft();
             mc.setFps(spoofFps, applyInF3Value.getValue());
         } catch (Exception ignored) { }
+    }
+
+    @Override
+    public void onTick() {
+        spoofTick++;
+        if (spoofTick > 20) updateSpoofFps();
     }
 }
