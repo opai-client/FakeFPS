@@ -10,4 +10,4 @@ A extension that fake client fps.
 
 ## Screenshots
 
-![demo](docs/Screenshot1.png)
+![demo](https://raw.githubusercontent.com/opai-client/FakeFPS/refs/heads/main/docs/Screenshot1.png)
